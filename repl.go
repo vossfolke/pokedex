@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"pokeapi"
 	"strings"
 )
 
@@ -11,6 +12,12 @@ type cmdCli struct {
 	name        string
 	description string
 	callback    func() error
+}
+
+type config struct {
+	pokeapiClient    pokeapi.Client
+	nextLocationsURL *string
+	prevLocationsURL *string
 }
 
 func startRepl() {
