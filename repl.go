@@ -52,8 +52,13 @@ func getCommands() map[string]cmdCli {
 	return map[string]cmdCli{
 		"help": {
 			name:        "help",
-			description: "help text",
+			description: "Informations about the usage.",
 			callback:    commandHelp,
+		},
+		"exit": {
+			name:        "exit",
+			description: "Exit the Pokedex",
+			callback:    commandExit,
 		},
 	}
 }
