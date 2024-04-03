@@ -12,7 +12,7 @@ import (
 type cmdCli struct {
 	name        string
 	description string
-	callback    func(*config) error
+	callback    func(*config, *string) error
 }
 
 type config struct {
@@ -36,7 +36,7 @@ func startRepl(cfg *config) {
 
 		command, exists := getCommands()[commandName]
 		if exists {
-			err := command.callback(cfg)
+			err := command.callback(cfg, &words[1])
 			if err != nil {
 				fmt.Println(err)
 			}
@@ -77,6 +77,11 @@ func getCommands() map[string]cmdCli {
 			name:        "exit",
 			description: "Exit the Pokedex",
 			callback:    commandExit,
+		},
+		"explore": {
+			name: "explore",
+			description: "Explore the Pokemons in an area",
+			callback: commandExplore,
 		},
 	}
 }
