@@ -6,10 +6,14 @@ import (
 )
 
 func commandMapf(cfg *config) error {
+
+
 	locationsResp, err := cfg.pokeapiClient.ListLocations(cfg.nextLocationsURL)
 	if err != nil {
 		return err
 	}
+
+
 
 	cfg.nextLocationsURL = locationsResp.Next
 	cfg.prevLocationsURL = locationsResp.Previous
@@ -29,6 +33,7 @@ func commandMapb(cfg *config) error {
 	if err != nil {
 		return err
 	}
+
 
 	cfg.nextLocationsURL = locationResp.Next
 	cfg.prevLocationsURL = locationResp.Previous
