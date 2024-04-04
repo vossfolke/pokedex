@@ -1,7 +1,6 @@
 package pokecache
 
 import (
-	"fmt"
 	"sync"
 	"time"
 )
@@ -18,7 +17,6 @@ type cacheEntry struct {
 
 func NewCache(interval time.Duration) Cache {
 	cache := Cache{cache: make(map[string]cacheEntry), mu: &sync.Mutex{}}
-	fmt.Println("Starting reapLoop...")
 	go cache.reapLoop(interval)
 	return cache
 }
