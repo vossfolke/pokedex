@@ -23,7 +23,9 @@ func commandCatch(cfg *config, args ...string) error {
 		fmt.Printf("%s escaped!\n", args[0])
 	} else {
 		fmt.Printf("%s was caught!\n", args[0])
-		
+		pokedexInfo := cfg.pokeapiClient.AddToPokedex(&pokemon)
+		fmt.Println(pokedexInfo)
 	}
-	 return nil
+
+	return nil
 }

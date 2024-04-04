@@ -20,8 +20,8 @@ func (p *Pokedex) Add(name string, pokemon Pokemon) string {
 	defer p.mu.Unlock()
 	_, ok := p.pkmn[name]
 	if ok {
-		return fmt.Sprintf("%s is already in your Pokedex...")
+		return fmt.Sprintf("%s is already in your Pokedex...", pokemon.Name)
 	}
 	p.pkmn[name] = pokemon
-	return fmt.Sprintf("%s is added to your Pokedex!")
+	return fmt.Sprintf("%s is added to your Pokedex!", pokemon.Name)
 }

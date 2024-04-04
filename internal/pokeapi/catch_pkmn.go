@@ -43,3 +43,7 @@ func (c *Client) CatchPokemon(name string) (Pokemon, error) {
 	c.cache.Add(url, data)
 	return pokemon, nil
 }
+
+func (c *Client) AddToPokedex(pkmn *Pokemon) string {
+	return c.pokedex.Add(pkmn.Name, *pkmn)
+}
