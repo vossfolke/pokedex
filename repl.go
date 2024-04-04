@@ -24,7 +24,7 @@ type config struct {
 func startRepl(cfg *config) {
 	reader := bufio.NewScanner(os.Stdin)
 	for {
-		fmt.Println("Pokedex >")
+		fmt.Print("Pokedex > ")
 		reader.Scan()
 		words := cleanInput(reader.Text())
 
@@ -91,6 +91,16 @@ func getCommands() map[string]cmdCli {
 			name:        "catch <pokemon>",
 			description: "Catching a Pokemon by chance",
 			callback:    commandCatch,
+		},
+		"inspect": {
+			name:        "inspect <pokemon>",
+			description: "Gives Information about a Pokemon",
+			callback:    commandInspect,
+		},
+		"pokedex": {
+			name:        "pokedex",
+			description: "Lists all Pokedex entries",
+			callback:    commandPokedex,
 		},
 	}
 }
